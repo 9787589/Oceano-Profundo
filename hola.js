@@ -189,75 +189,107 @@
   const container = document.getElementById("creatures-container");
   if (!container) return;
 
-  // SVG inline para pez (minimalista, fluido)
   const fishSVG = (color) => `
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 40" width="80" height="40">
-      <ellipse cx="35" cy="20" rx="28" ry="13" fill="${color}" opacity="0.85"/>
-      <polygon points="63,20 80,8 80,32" fill="${color}" opacity="0.75"/>
-      <circle cx="16" cy="17" r="2.5" fill="rgba(202,240,248,0.9)"/>
-      <path d="M 44 14 Q 52 8 55 14" stroke="rgba(255,255,255,0.3)" stroke-width="1" fill="none"/>
+      <ellipse cx="35" cy="20" rx="28" ry="13" fill="${color}" opacity="0.9"/>
+      <polygon points="63,20 80,8 80,32" fill="${color}" opacity="0.8"/>
+      <circle cx="16" cy="17" r="2.5" fill="rgba(202,240,248,0.95)"/>
+      <path d="M 44 14 Q 52 8 55 14" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" fill="none"/>
+    </svg>`;
+
+  const seahorseSVG = () => `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 70" width="40" height="70">
+      <ellipse cx="20" cy="35" rx="8" ry="12" fill="rgba(0,180,216,0.9)" opacity="0.85"/>
+      <circle cx="20" cy="15" r="6" fill="rgba(0,150,199,0.9)"/>
+      <path d="M20 21 Q18 28 20 35" stroke="rgba(0,180,216,0.8)" stroke-width="1.5" fill="none"/>
+      <path d="M17 32 Q15 45 14 60" stroke="rgba(72,202,228,0.7)" stroke-width="1" fill="none" stroke-linecap="round"/>
+      <path d="M20 35 Q20 50 20 65" stroke="rgba(72,202,228,0.75)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <path d="M23 32 Q25 45 26 60" stroke="rgba(72,202,228,0.7)" stroke-width="1" fill="none" stroke-linecap="round"/>
+      <circle cx="19" cy="13" r="1.5" fill="rgba(202,240,248,0.95)"/>
+    </svg>`;
+
+  const starfishSVG = () => `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70" width="70" height="70">
+      <g fill="rgba(0,180,216,0.85)">
+        <ellipse cx="35" cy="15" rx="10" ry="15"/>
+        <ellipse cx="55" cy="27" rx="10" ry="15" transform="rotate(72,35,35)"/>
+        <ellipse cx="50" cy="55" rx="10" ry="15" transform="rotate(144,35,35)"/>
+        <ellipse cx="20" cy="55" rx="10" ry="15" transform="rotate(216,35,35)"/>
+        <ellipse cx="15" cy="27" rx="10" ry="15" transform="rotate(288,35,35)"/>
+        <circle cx="35" cy="35" r="8" fill="rgba(72,202,228,0.8)"/>
+      </g>
+    </svg>`;
+
+  const octopusSVG = () => `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 80" width="60" height="80">
+      <ellipse cx="30" cy="25" rx="18" ry="20" fill="rgba(0,119,182,0.9)"/>
+      <circle cx="22" cy="22" r="2" fill="rgba(202,240,248,0.95)"/>
+      <circle cx="38" cy="22" r="2" fill="rgba(202,240,248,0.95)"/>
+      <path d="M15 45 Q12 60 10 75" stroke="rgba(0,150,199,0.85)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M22 48 Q20 63 19 76" stroke="rgba(0,150,199,0.8)" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+      <path d="M30 50 Q30 65 30 78" stroke="rgba(0,150,199,0.85)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M38 48 Q40 63 41 76" stroke="rgba(0,150,199,0.8)" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+      <path d="M45 45 Q48 60 50 75" stroke="rgba(0,150,199,0.85)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
     </svg>`;
 
   const turtleSVG = () => `
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 70" width="100" height="70">
-      <ellipse cx="50" cy="35" rx="30" ry="20" fill="#0077B6" opacity="0.8"/>
-      <ellipse cx="50" cy="35" rx="23" ry="15" fill="#00B4D8" opacity="0.6"/>
-      <!-- head -->
-      <ellipse cx="22" cy="35" rx="8" ry="6" fill="#0096C7" opacity="0.85"/>
-      <!-- flippers -->
-      <ellipse cx="68" cy="20" rx="12" ry="5" fill="#0077B6" opacity="0.7" transform="rotate(-20,68,20)"/>
-      <ellipse cx="68" cy="50" rx="12" ry="5" fill="#0077B6" opacity="0.7" transform="rotate(20,68,50)"/>
-      <ellipse cx="38" cy="18" rx="10" ry="4" fill="#0077B6" opacity="0.65" transform="rotate(-30,38,18)"/>
-      <ellipse cx="38" cy="52" rx="10" ry="4" fill="#0077B6" opacity="0.65" transform="rotate(30,38,52)"/>
-      <circle cx="18" cy="33" r="1.5" fill="rgba(202,240,248,0.9)"/>
+      <ellipse cx="50" cy="35" rx="30" ry="20" fill="#0096C7" opacity="0.9"/>
+      <ellipse cx="50" cy="35" rx="23" ry="15" fill="#00B4D8" opacity="0.7"/>
+      <ellipse cx="22" cy="35" rx="8" ry="6" fill="#0077B6" opacity="0.9"/>
+      <ellipse cx="68" cy="20" rx="12" ry="5" fill="#0077B6" opacity="0.8" transform="rotate(-20,68,20)"/>
+      <ellipse cx="68" cy="50" rx="12" ry="5" fill="#0077B6" opacity="0.8" transform="rotate(20,68,50)"/>
+      <ellipse cx="38" cy="18" rx="10" ry="4" fill="#0077B6" opacity="0.75" transform="rotate(-30,38,18)"/>
+      <ellipse cx="38" cy="52" rx="10" ry="4" fill="#0077B6" opacity="0.75" transform="rotate(30,38,52)"/>
+      <circle cx="18" cy="33" r="1.8" fill="rgba(202,240,248,0.95)"/>
     </svg>`;
 
   const jellyfishSVG = () => `
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 80" width="60" height="80">
-      <ellipse cx="30" cy="28" rx="22" ry="18" fill="rgba(72,202,228,0.35)" stroke="rgba(144,224,239,0.4)" stroke-width="1"/>
-      <path d="M16 42 Q14 60 12 72" stroke="rgba(144,224,239,0.5)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-      <path d="M22 44 Q20 58 19 70" stroke="rgba(144,224,239,0.4)" stroke-width="1" fill="none" stroke-linecap="round"/>
-      <path d="M30 45 Q30 60 30 72" stroke="rgba(144,224,239,0.5)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-      <path d="M38 44 Q40 58 41 70" stroke="rgba(144,224,239,0.4)" stroke-width="1" fill="none" stroke-linecap="round"/>
-      <path d="M44 42 Q46 60 48 72" stroke="rgba(144,224,239,0.5)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-      <ellipse cx="30" cy="24" rx="12" ry="8" fill="rgba(173,232,244,0.2)"/>
+      <ellipse cx="30" cy="28" rx="22" ry="18" fill="rgba(72,202,228,0.5)" stroke="rgba(144,224,239,0.6)" stroke-width="1.5"/>
+      <path d="M16 42 Q14 60 12 72" stroke="rgba(144,224,239,0.7)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M22 44 Q20 58 19 70" stroke="rgba(144,224,239,0.6)" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      <path d="M30 45 Q30 60 30 72" stroke="rgba(144,224,239,0.7)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M38 44 Q40 58 41 70" stroke="rgba(144,224,239,0.6)" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      <path d="M44 42 Q46 60 48 72" stroke="rgba(144,224,239,0.7)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
     </svg>`;
 
   const fishColors = [
-    "rgba(0,180,216,0.75)",
-    "rgba(72,202,228,0.75)",
-    "rgba(0,150,199,0.75)",
-    "rgba(144,224,239,0.7)",
-    "rgba(0,119,182,0.75)",
+    "rgba(0,180,216,0.85)",
+    "rgba(72,202,228,0.85)",
+    "rgba(0,150,199,0.85)",
+    "rgba(144,224,239,0.8)",
+    "rgba(0,119,182,0.85)",
+    "rgba(0,180,216,0.9)",
+    "rgba(72,202,228,0.9)",
   ];
 
-  // Spawn fish
   function spawnFish() {
     const el = document.createElement("div");
     el.className = "creature";
     const color = fishColors[Math.floor(Math.random() * fishColors.length)];
     el.innerHTML = fishSVG(color);
 
-    const size = 0.5 + Math.random() * 1.1;
-    const startY = 15 + Math.random() * 65;
-    const dur = 25 + Math.random() * 30;
+    const size = 0.6 + Math.random() * 1.2;
+    const startY = 15 + Math.random() * 70;
+    const dur = 22 + Math.random() * 28;
     const delay = -(Math.random() * dur);
-    const swimY = (Math.random() - 0.5) * 60;
-    const swimY2 = (Math.random() - 0.5) * 40;
-    const tilt = (Math.random() - 0.5) * 8;
-    const flip = "scaleX(-1)";
+    const swimY = (Math.random() - 0.5) * 70;
+    const swimY2 = (Math.random() - 0.5) * 50;
+    const tilt = (Math.random() - 0.5) * 10;
 
     el.style.cssText = `
       right: -120px;
       left: auto;
       top: ${startY}%;
-      transform: ${flip} scale(${size});
+      transform: scaleX(-1) scale(${size});
       animation-duration: ${dur}s;
       animation-delay: ${delay}s;
       --swim-x: ${70 + Math.random() * 50}vw;
       --swim-y: ${swimY}px;
       --swim-y2: ${swimY2}px;
       --tilt: ${tilt}deg;
+      opacity: 0.9;
     `;
     container.appendChild(el);
 
@@ -265,27 +297,53 @@
     setTimeout(() => { if (el.parentNode) el.remove(); }, (dur + 5) * 1000);
   }
 
-  // Spawn turtle
+  function spawnSeahorse() {
+    const el = document.createElement("div");
+    el.className = "creature";
+    el.innerHTML = seahorseSVG();
+
+    const size = 0.7 + Math.random() * 0.8;
+    const startY = 20 + Math.random() * 60;
+    const dur = 20 + Math.random() * 25;
+    const delay = -(Math.random() * dur);
+
+    el.style.cssText = `
+      right: -60px;
+      left: auto;
+      top: ${startY}%;
+      transform: scale(${size});
+      animation-duration: ${dur}s;
+      animation-delay: ${delay}s;
+      --swim-x: ${60 + Math.random() * 50}vw;
+      --swim-y: ${(Math.random() - 0.5) * 40}px;
+      --swim-y2: ${(Math.random() - 0.5) * 25}px;
+      opacity: 0.85;
+    `;
+    container.appendChild(el);
+
+    el.addEventListener("animationend", () => el.remove());
+    setTimeout(() => { if (el.parentNode) el.remove(); }, (dur + 5) * 1000);
+  }
+
   function spawnTurtle() {
     const el = document.createElement("div");
     el.className = "creature";
     el.innerHTML = turtleSVG();
 
-    const startY = 20 + Math.random() * 55;
-    const dur = 45 + Math.random() * 30;
-    const delay = -(Math.random() * 20);
+    const startY = 25 + Math.random() * 50;
+    const dur = 40 + Math.random() * 35;
+    const delay = -(Math.random() * 15);
 
     el.style.cssText = `
       right: -130px;
       left: auto;
       top: ${startY}%;
-      opacity: 0.8;
       animation-duration: ${dur}s;
       animation-delay: ${delay}s;
-      --swim-x: ${60 + Math.random() * 40}vw;
-      --swim-y: ${(Math.random() - 0.5) * 40}px;
+      --swim-x: ${55 + Math.random() * 45}vw;
+      --swim-y: ${(Math.random() - 0.5) * 35}px;
       --swim-y2: ${(Math.random() - 0.5) * 20}px;
-      --tilt: ${(Math.random() - 0.5) * 5}deg;
+      opacity: 0.85;
     `;
     container.appendChild(el);
 
@@ -293,15 +351,14 @@
     setTimeout(() => { if (el.parentNode) el.remove(); }, (dur + 5) * 1000);
   }
 
-  // Jellyfish (float in place)
   function placeJellyfish() {
     const el = document.createElement("div");
     el.className = "creature creature-jellyfish";
     el.innerHTML = jellyfishSVG();
 
-    const x = 5 + Math.random() * 85;
-    const y = 10 + Math.random() * 70;
-    const dur = 5 + Math.random() * 6;
+    const x = 5 + Math.random() * 90;
+    const y = 15 + Math.random() * 65;
+    const dur = 6 + Math.random() * 7;
     const delay = -(Math.random() * dur);
 
     el.style.cssText = `
@@ -309,19 +366,62 @@
       top: ${y}%;
       animation-duration: ${dur}s;
       animation-delay: ${delay}s;
-      opacity: 0.65;
+      opacity: 0.7;
     `;
     container.appendChild(el);
   }
 
-  // Initial spawn
-  for (let i = 0; i < 5; i++) spawnFish();
-  for (let i = 0; i < 2; i++) spawnTurtle();
-  for (let i = 0; i < 4; i++) placeJellyfish();
+  function placeStarfish() {
+    const el = document.createElement("div");
+    el.className = "creature creature-jellyfish";
+    el.innerHTML = starfishSVG();
 
-  // Continuous spawn
-  setInterval(spawnFish, 8000);
-  setInterval(spawnTurtle, 22000);
+    const x = 8 + Math.random() * 84;
+    const y = 45 + Math.random() * 45;
+
+    el.style.cssText = `
+      left: ${x}%;
+      top: ${y}%;
+      opacity: 0.7;
+      animation: gentle-float 8s ease-in-out infinite;
+      animation-delay: ${-(Math.random() * 8)}s;
+    `;
+    container.appendChild(el);
+  }
+
+  function placeOctopus() {
+    const el = document.createElement("div");
+    el.className = "creature creature-jellyfish";
+    el.innerHTML = octopusSVG();
+
+    const x = 10 + Math.random() * 80;
+    const y = 50 + Math.random() * 40;
+    const dur = 8 + Math.random() * 6;
+    const delay = -(Math.random() * dur);
+
+    el.style.cssText = `
+      left: ${x}%;
+      top: ${y}%;
+      animation-duration: ${dur}s;
+      animation-delay: ${delay}s;
+      opacity: 0.75;
+    `;
+    container.appendChild(el);
+  }
+
+  // Initial spawn - más criaturas
+  for (let i = 0; i < 8; i++) spawnFish();
+  for (let i = 0; i < 3; i++) spawnSeahorse();
+  for (let i = 0; i < 3; i++) spawnTurtle();
+  for (let i = 0; i < 6; i++) placeJellyfish();
+  for (let i = 0; i < 4; i++) placeStarfish();
+  for (let i = 0; i < 2; i++) placeOctopus();
+
+  // Continuous spawn - más frecuente
+  setInterval(spawnFish, 6000);
+  setInterval(spawnSeahorse, 9000);
+  setInterval(spawnTurtle, 18000);
+  setInterval(placeJellyfish, 5000);
 })();
 
 
