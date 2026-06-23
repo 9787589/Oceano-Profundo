@@ -245,10 +245,11 @@
     const swimY = (Math.random() - 0.5) * 60;
     const swimY2 = (Math.random() - 0.5) * 40;
     const tilt = (Math.random() - 0.5) * 8;
-    const flip = Math.random() > 0.5 ? "scaleX(-1)" : "";
+    const flip = "scaleX(-1)";
 
     el.style.cssText = `
-      left: -120px;
+      right: -120px;
+      left: auto;
       top: ${startY}%;
       transform: ${flip} scale(${size});
       animation-duration: ${dur}s;
@@ -275,7 +276,8 @@
     const delay = -(Math.random() * 20);
 
     el.style.cssText = `
-      left: -130px;
+      right: -130px;
+      left: auto;
       top: ${startY}%;
       opacity: 0.8;
       animation-duration: ${dur}s;
