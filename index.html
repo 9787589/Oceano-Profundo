@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Océano Profundo — Vida Marina</title>
+  <link rel="stylesheet" href="oceano.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+   canvas de fondo xd
+  <canvas id="ocean-canvas"></canvas>
+
+  <!--contenedor de burbujas 1xd -->
+  <div id="bubbles-container"></div>
+
+  <div RAYSclass="light-rays">
+    <div class="ray ray-1"></div>
+    <div class="ray ray-2"></div>
+    <div class="ray ray-3"></div>
+    <div class="ray ray-4"></div>
+    <div class="ray ray-5"></div>
+  </div>
+
+  <!-- criaturas flotantes 1 xd-->
+  <div id="creatures-container"></div>
+
+  <!-- particulassss -->
+  <div id="particles-container"></div>
+
+  <!-- ===================== NAV ===================== -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <span class="logo-symbol">〜</span>
+      <span class="logo-text">Océano Profundo</span>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#oceanos">Océanos</a></li>
+      <li><a href="#vida-marina">Vida Marina</a></li>
+      <li><a href="#animales">Animales</a></li>
+      <li><a href="#datos">Datos</a></li>
+      <li><a href="#ecosistemas">Ecosistemas</a></li>
+      <li><a href="#conservacion">Conservación</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="inicio" class="hero">
+    <div class="hero-content reveal">
+      <p class="hero-eyebrow">Bienvenido al mundo submarino</p>
+      <h1 class="hero-title">El Océano<br /><em>Respira</em></h1>
+      <p class="hero-subtitle">
+        Sumérgete en las profundidades del planeta más azul del universo conocido.
+        Descubre la vida que late bajo cada ola.
+      </p>
+      <a href="#oceanos" class="btn-primary">Explorar</a>
+    </div>
+    <div class="hero-depth-indicator">
+      <span class="depth-line"></span>
+      <span class="depth-label">0 m</span>
+    </div>
+    <div class="scroll-hint">
+      <span class="scroll-arrow"></span>
+      <span>Desliza</span>
+    </div>
+  </section>
+
+  <!-- ===================== OCÉANOS ===================== -->
+  <section id="oceanos" class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Nuestro Planeta Azul</p>
+        <h2 class="section-title">Los Océanos del Mundo</h2>
+        <p class="section-desc">
+          El 71% de la superficie terrestre está cubierta por agua salada. Cinco grandes
+          océanos forman un sistema interconectado que regula el clima, produce oxígeno
+          y alberga la mayor biodiversidad del planeta.
+        </p>
+      </div>
+      <div class="ocean-cards">
+        <div class="ocean-card reveal" style="--delay: 0.1s">
+          <div class="ocean-card-icon">🌊</div>
+          <h3>Océano Pacífico</h3>
+          <p class="ocean-stat">165,250,000 km²</p>
+          <p>El más grande y profundo, alberga la Fosa de las Marianas, el punto más hondo de la Tierra a 11,034 m.</p>
+        </div>
+        <div class="ocean-card reveal" style="--delay: 0.2s">
+          <div class="ocean-card-icon">🌀</div>
+          <h3>Océano Atlántico</h3>
+          <p class="ocean-stat">106,460,000 km²</p>
+          <p>Separa América de Europa y África. Sus corrientes termohalinas regulan el clima del hemisferio norte.</p>
+        </div>
+        <div class="ocean-card reveal" style="--delay: 0.3s">
+          <div class="ocean-card-icon">🐠</div>
+          <h3>Océano Índico</h3>
+          <p class="ocean-stat">70,560,000 km²</p>
+          <p>El más cálido, hogar de arrecifes de coral extraordinarios y de una biodiversidad marina singular.</p>
+        </div>
+        <div class="ocean-card reveal" style="--delay: 0.4s">
+          <div class="ocean-card-icon">🧊</div>
+          <h3>Océano Ártico</h3>
+          <p class="ocean-stat">14,056,000 km²</p>
+          <p>El más pequeño y frío, cubierto de hielo marino en su mayor parte. Ecosistema frágil y en cambio.</p>
+        </div>
+        <div class="ocean-card reveal" style="--delay: 0.5s">
+          <div class="ocean-card-icon">❄️</div>
+          <h3>Océano Antártico</h3>
+          <p class="ocean-stat">21,960,000 km²</p>
+          <p>Rodea la Antártida y almacena enormes cantidades de CO₂, siendo esencial para el equilibrio climático.</p>
+        </div>
+      </div>
+      <div class="ocean-stats-bar reveal">
+        <div class="stat-item">
+          <span class="stat-number" data-target="71">0</span><span class="stat-unit">%</span>
+          <span class="stat-label">del planeta cubierto</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="11">0</span><span class="stat-unit">km</span>
+          <span class="stat-label">profundidad máxima</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="50">0</span><span class="stat-unit">%</span>
+          <span class="stat-label">del oxígeno mundial</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="250">0</span><span class="stat-unit">k</span>
+          <span class="stat-label">especies conocidas</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== VIDA MARINA ===================== -->
+  <section id="vida-marina" class="section section-mid parallax-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Biodiversidad</p>
+        <h2 class="section-title">Vida Marina</h2>
+      </div>
+      <div class="life-grid">
+        <div class="life-block life-block-large reveal">
+          <img src="https://thf.bing.com/th/id/R.3926f7bbe9e9dfb5258a3f0664b98e6d?rik=A4MXAtBI3rThMQ&riu=http%3a%2f%2f2.bp.blogspot.com%2f-5eDlm3vt_2M%2fUsvksOS9fkI%2fAAAAAAAAAkI%2faZtS9-7kDf0%2fs1600%2fcorales%2b1.JPG&ehk=%2fd%2bGCLhuas190gEdKm88%2fZ6BTmrGaFYyMofrL3GKFbA%3d&risl=&pid=ImgRaw&r=0" alt="Arrecife de coral" loading="lazy" />
+          <div class="life-block-overlay">
+            <h3>Arrecifes de Coral</h3>
+            <p>Cubren menos del 1% del océano pero albergan el 25% de todas las especies marinas. Son la selva tropical del mar.</p>
+          </div>
+        </div>
+        <div class="life-block reveal" style="--delay: 0.15s">
+          <img src="https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=600&q=80" alt="Zona pelágica" loading="lazy" />
+          <div class="life-block-overlay">
+            <h3>Zona Pelágica</h3>
+            <p>Las aguas abiertas del océano, hogar de grandes migradores y cardúmenes.</p>
+          </div>
+        </div>
+        <div class="life-block reveal" style="--delay: 0.25s">
+          <img src="https://media.zenfs.com/es/bbc_news_mundo_254/cefad1652dd86feee6bb5fe4b53fade5" alt="Zona abisal" loading="lazy" />
+          <div class="life-block-overlay">
+            <h3>Zona Abisal</h3>
+            <p>Más allá de los 4,000 m, donde reina la oscuridad y formas de vida únicas evolucionaron sin luz solar.</p>
+          </div>
+        </div>
+        <div class="life-block reveal" style="--delay: 0.35s">
+          <img src="https://vidamarina.net/wp-content/uploads/pradera-vibrante-praderas-marinas.webp" alt="Praderas marinas" loading="lazy" />
+          <div class="life-block-overlay">
+            <h3>Praderas Marinas</h3>
+            <p>El pasto marino captura carbono 35 veces más rápido que los bosques tropicales.</p>
+          </div>
+        </div>
+        <div class="life-block reveal" style="--delay: 0.45s">
+          <img src="https://thf.bing.com/th/id/R.0fdc78ce90ef601bc925fdf97d73cef6?rik=G1PPf3agYOU4%2fA&pid=ImgRaw&r=0" alt="Cardumen de peces tropicales" loading="lazy" />
+          <div class="life-block-overlay">
+            <h3>Cardúmenes Tropicales</h3>
+            <p>Los bancos de peces crean movimiento y color en arrecifes y lagunas, formando comunidades vivas en el océano.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ANIMALES ===================== -->
+  <section id="animales" class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Fauna Destacada</p>
+        <h2 class="section-title">Guardianes del Océano</h2>
+        <p class="section-desc">Cada especie cumple un rol irreemplazable en el equilibrio del ecosistema marino.</p>
+      </div>
+      <div class="animals-grid">
+
+        <!-- Ballena Azul -->
+        <div class="animal-card reveal" style="--delay: 0.05s">
+          <div class="animal-img-wrap">
+            <img src="https://images.unsplash.com/photo-1498503403619-e39e4b5a6359?w=600&q=80" alt="Ballena Azul" loading="lazy" />
+            <div class="animal-depth-badge">Profundidad: 200–500 m</div>
+          </div>
+          <div class="animal-info">
+            <span class="animal-tag">Mammalia</span>
+            <h3>Ballena Azul</h3>
+            <p class="animal-latin"><em>Balaenoptera musculus</em></p>
+            <p>El animal más grande que ha existido jamás. Puede alcanzar 33 m y 190 toneladas. Su canto viaja miles de kilómetros bajo el agua.</p>
+            <div class="animal-facts">
+              <span>🫀 Corazón de 180 kg</span>
+              <span>📏 Hasta 33 m</span>
+              <span>⚠️ En peligro</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Delfín -->
+        <div class="animal-card reveal" style="--delay: 0.1s">
+          <div class="animal-img-wrap">
+            <img src="https://images.unsplash.com/photo-1607153333879-c174d265f1d2?w=600&q=80" alt="Delfín" loading="lazy" />
+            <div class="animal-depth-badge">Profundidad: 0–300 m</div>
+          </div>
+          <div class="animal-info">
+            <span class="animal-tag">Mammalia</span>
+            <h3>Delfín Mular</h3>
+            <p class="animal-latin"><em>Tursiops truncatus</em></p>
+            <p>Uno de los mamíferos más inteligentes del planeta. Navegan por ecolocalización y viven en sofisticadas estructuras sociales.</p>
+            <div class="animal-facts">
+              <span>🧠 Alta inteligencia</span>
+              <span>💨 Hasta 60 km/h</span>
+              <span>✅ Preocupación menor</span>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="animal-card reveal" style="--delay: 0.15s">
+          <div class="animal-img-wrap">
+            <img src="https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?w=600&q=80" alt="Tortuga Marina" loading="lazy" />
+            <div class="animal-depth-badge">Profundidad: 0–1,000 m</div>
+          </div>
+          <div class="animal-info">
+            <span class="animal-tag">Reptilia</span>
+            <h3>Tortuga Marina</h3>
+            <p class="animal-latin"><em>Chelonia mydas</em></p>
+            <p>Han sobrevivido 100 millones de años. Vuelven a nacer en la misma playa donde nacieron, guiadas por el campo magnético terrestre.</p>
+            <div class="animal-facts">
+              <span>⏳ Vive +80 años</span>
+              <span>🌍 Migra 2,600 km</span>
+              <span>⚠️ Amenazada</span>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="animal-card reveal" style="--delay: 0.2s">
+          <div class="animal-img-wrap">
+            <img src="" />
+            <div class="animal-depth-badge">Profundidad: 0–120 m</div>
+          </div>
+          <div class="animal-info">
+            <span class="animal-tag">Elasmobranchii</span>
+            <h3>Mantarraya Gigante</h3>
+            <p class="animal-latin"><em>Manta birostris</em></p>
+            <p>La raya más grande del mundo, con una envergadura de hasta 7 m. Se alimenta de plancton y krill filtrando el agua con elegancia inigualable.</p>
+            <div class="animal-facts">
+              <span>↔️ Enverg. 7 m</span>
+              <span>🦷 Sin aguijón</span>
+              <span>⚠️ Vulnerable</span>
+            </div>
+          </div>
+        </div>
+        <div class="animal-card reveal" style="--delay: 0.25s">
+          <div class="animal-img-wrap">
+            <img src="https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=600&q=80" alt="Caballito de Mar" loading="lazy" />
+            <div class="animal-depth-badge">Profundidad: 0–100 m</div>
+          </div>
+          <div class="animal-info">
+            <span class="animal-tag">Actinopterygii</span>
+            <h3>Caballito de Mar</h3>
+            <p class="animal-latin"><em>Hippocampus guttulatus</em></p>
+            <p>El único pez que nada en posición vertical. En esta especie, el macho es quien gesta y da a luz hasta 2,000 crías.</p>
+            <div class="animal-facts">
+              <span>🐾 Macho embarazado</span>
+              <span>🎯 Visión 360°</span>
+              <span>⚠️ Vulnerable</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="animal-card reveal" style="--delay: 0.3s">
+          <div class="animal-img-wrap">
+            <img src="https://images.unsplash.com/photo-1545671913-b89ac1b4ac10?w=600&q=80" alt="Pulpo" loading="lazy" />
+            <div class="animal-depth-badge">Profundidad: 0–2,000 m</div>
+          </div>
+          <div class="animal-info">
+            <span class="animal-tag">Cephalopoda</span>
+            <h3>Pulpo Común</h3>
+            <p class="animal-latin"><em>Octopus vulgaris</em></p>
+            <p>Tres corazones, nueve cerebros (uno central y uno por tentáculo) y sangre azul. Maestros del camuflaje y de la resolución de problemas.</p>
+            <div class="animal-facts">
+              <span>🧠 9 cerebros</span>
+              <span>🎨 Camuflaje total</span>
+              <span>💙 Sangre azul</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="datos" class="section section-mid parallax-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Lo que quizás no sabías</p>
+        <h2 class="section-title">Datos Curiosos</h2>
+      </div>
+      <div class="facts-list">
+        <div class="fact-item reveal" style="--delay: 0.05s">
+          <span class="fact-num">01</span>
+          <div class="fact-content">
+            <h4>El océano produce la mitad del oxígeno</h4>
+            <p>El fitoplancton marino genera entre el 50% y el 80% del oxígeno que respiramos, más que todos los bosques del mundo juntos.</p>
+          </div>
+        </div>
+        <div class="fact-item reveal" style="--delay: 0.1s">
+          <span class="fact-num">02</span>
+          <div class="fact-content">
+            <h4>El 95% del océano nunca fue explorado</h4>
+            <p>Conocemos mejor la superficie de la Luna que el fondo de nuestros propios océanos. Las profundidades aún guardan misterios sin nombre.</p>
+          </div>
+        </div>
+        <div class="fact-item reveal" style="--delay: 0.15s">
+          <span class="fact-num">03</span>
+          <div class="fact-content">
+            <h4>El agua del mar tiene memoria sonora</h4>
+            <p>El canto de las ballenas jorobadas puede recorrer más de 18,000 km bajo el agua usando canales acústicos naturales del océano.</p>
+          </div>
+        </div>
+        <div class="fact-item reveal" style="--delay: 0.2s">
+          <span class="fact-num">04</span>
+          <div class="fact-content">
+            <h4>Hay volcanes y ríos bajo el mar</h4>
+            <p>El 90% de la actividad volcánica ocurre bajo el agua. Además, existen "ríos" de salmuera hipersalina que fluyen por el fondo oceánico.</p>
+          </div>
+        </div>
+        <div class="fact-item reveal" style="--delay: 0.25s">
+          <span class="fact-num">05</span>
+          <div class="fact-content">
+            <h4>El océano regula la temperatura del planeta</h4>
+            <p>Absorbe más del 90% del calor generado por el efecto invernadero. Sin él, la temperatura promedio sería 40°C más alta.</p>
+          </div>
+        </div>
+        <div class="fact-item reveal" style="--delay: 0.3s">
+          <span class="fact-num">06</span>
+          <div class="fact-content">
+            <h4>La bioluminiscencia ilumina las profundidades</h4>
+            <p>El 76% de los animales de aguas profundas producen su propia luz. Es una de las adaptaciones más extraordinarias de la evolución.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ecosistemas" class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Zonas del Océano</p>
+        <h2 class="section-title">Ecosistemas Marinos</h2>
+        <p class="section-desc">El océano no es uniforme. Cada zona de profundidad es un mundo con sus propias reglas, criaturas y condiciones de vida.</p>
+      </div>
+      <div class="eco-depth-chart">
+        <div class="eco-zone reveal" style="--zone-color: #ADE8F4; --delay: 0.05s">
+          <div class="eco-zone-depth">0 – 200 m</div>
+          <div class="eco-zone-info">
+            <h4>Zona Epipelágica (Fótica)</h4>
+            <p>Penetra la luz solar. Aquí viven corales, la mayoría de peces, mamíferos marinos y el fitoplancton que produce oxígeno.</p>
+          </div>
+        </div>
+        <div class="eco-zone reveal" style="--zone-color: #48CAE4; --delay: 0.1s">
+          <div class="eco-zone-depth">200 – 1,000 m</div>
+          <div class="eco-zone-info">
+            <h4>Zona Mesopelágica (Crepuscular)</h4>
+            <p>Luz tenue y decreciente. Aquí migran diariamente millones de organismos en la mayor migración animal del planeta.</p>
+          </div>
+        </div>
+        <div class="eco-zone reveal" style="--zone-color: #0096C7; --delay: 0.15s">
+          <div class="eco-zone-depth">1,000 – 4,000 m</div>
+          <div class="eco-zone-info">
+            <h4>Zona Batipelágica (Medianoche)</h4>
+            <p>Oscuridad total, presiones extremas y temperaturas cercanas a 0°C. Los animales aquí producen bioluminiscencia.</p>
+          </div>
+        </div>
+        <div class="eco-zone reveal" style="--zone-color: #0077B6; --delay: 0.2s">
+          <div class="eco-zone-depth">4,000 – 6,000 m</div>
+          <div class="eco-zone-info">
+            <h4>Zona Abisopelagica</h4>
+            <p>Las llanuras abisales cubren la mayor parte del fondo marino. Aquí viven pepinos de mar, esponjas y peces extraños.</p>
+          </div>
+        </div>
+        <div class="eco-zone reveal" style="--zone-color: #023E8A; --delay: 0.25s">
+          <div class="eco-zone-depth">6,000 – 11,000 m</div>
+          <div class="eco-zone-info">
+            <h4>Zona Hadal (Fosas)</h4>
+            <p>Las fosas oceánicas, como la de las Marianas. Presión 1,100 veces mayor que en superficie. Vida adaptada a condiciones extremas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="conservacion" class="section section-mid">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Urgencia Global</p>
+        <h2 class="section-title">Conservación y Protección</h2>
+        <p class="section-desc">Los océanos enfrentan amenazas sin precedente. La acción colectiva es la única respuesta posible.</p>
+      </div>
+      <div class="threats-grid">
+        <div class="threat-card reveal" style="--delay: 0.05s">
+          <div class="threat-icon">🌡️</div>
+          <h4>Calentamiento oceánico</h4>
+          <p>Los océanos han absorbido el 90% del exceso de calor desde 1970. El aumento de temperatura blanquea corales y altera migraciones.</p>
+          <div class="threat-bar"><div class="threat-fill" style="--fill: 87%"></div></div>
+          <span class="threat-pct">87% de los arrecifes amenazados</span>
+        </div>
+        <div class="threat-card reveal" style="--delay: 0.1s">
+          <div class="threat-icon">🧴</div>
+          <h4>Contaminación plástica</h4>
+          <p>Cada año llegan al océano entre 8 y 12 millones de toneladas de plástico. Para 2050 podría haber más plástico que peces por peso.</p>
+          <div class="threat-bar"><div class="threat-fill" style="--fill: 72%"></div></div>
+          <span class="threat-pct">72% de playas con microplásticos</span>
+        </div>
+        <div class="threat-card reveal" style="--delay: 0.15s">
+          <div class="threat-icon">🎣</div>
+          <h4>Sobrepesca</h4>
+          <p>El 34% de las pesquerías del mundo están sobreexplotadas. Las flotas industriales vacían el mar más rápido de lo que puede regenerarse.</p>
+          <div class="threat-bar"><div class="threat-fill" style="--fill: 34%"></div></div>
+          <span class="threat-pct">34% de pesquerías sobreexplotadas</span>
+        </div>
+        <div class="threat-card reveal" style="--delay: 0.2s">
+          <div class="threat-icon">⚗️</div>
+          <h4>Acidificación</h4>
+          <p>El CO₂ absorbido por el océano forma ácido carbónico. La acidez ha aumentado un 26% desde la industrialización, disolviendo conchas y esqueletos.</p>
+          <div class="threat-bar"><div class="threat-fill" style="--fill: 26%"></div></div>
+          <span class="threat-pct">26% más ácido que en 1850</span>
+        </div>
+      </div>
+      <div class="actions-section reveal">
+        <h3>¿Qué puedes hacer?</h3>
+        <div class="actions-grid">
+          <div class="action-item">
+            <span class="action-icon">♻️</span>
+            <p>Reduce el uso de plásticos de un solo uso</p>
+          </div>
+          <div class="action-item">
+            <span class="action-icon">🐟</span>
+            <p>Consume pescado de fuentes sostenibles certificadas</p>
+          </div>
+          <div class="action-item">
+            <span class="action-icon">🌱</span>
+            <p>Reduce tu huella de carbono personal y apoya energías renovables</p>
+          </div>
+          <div class="action-item">
+            <span class="action-icon">🌍</span>
+            <p>Apoya organizaciones dedicadas a la conservación marina</p>
+          </div>
+          <div class="action-item">
+            <span class="action-icon">📣</span>
+            <p>Educa y comunica — la conciencia colectiva transforma políticas</p>
+          </div>
+          <div class="action-item">
+            <span class="action-icon">🏖️</span>
+            <p>Participa en limpiezas de playas y ecosistemas costeros</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeria" class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Imágenes del Abismo</p>
+        <h2 class="section-title">Galería Submarina</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item reveal" style="--delay: 0.05s" data-caption="Banco de peces en el Pacífico">
+          <img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=700&q=80" alt="Banco de peces" loading="lazy" />
+          <div class="gallery-overlay">
+            <span>Banco de peces — Pacífico</span>
+          </div>
+        </div>
+        <div class="gallery-item reveal" style="--delay: 0.1s" data-caption="Arrecife de coral en el Índico">
+          <img src="https://images.unsplash.com/photo-1560275619-4cc5fa59d3ae?w=700&q=80" alt="Arrecife de coral" loading="lazy" />
+          <div class="gallery-overlay">
+            <span>Arrecife — Océano Índico</span>
+          </div>
+        </div>
+        <div class="gallery-item reveal gallery-item-wide" style="--delay: 0.15s" data-caption="Tortuga verde en aguas tropicales">
+          <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=900&q=80" alt="Tortuga verde" loading="lazy" />
+          <div class="gallery-overlay">
+            <span>Tortuga verde — Aguas tropicales</span>
+          </div>
+        </div>
+        <div class="gallery-item reveal" style="--delay: 0.2s" data-caption="Medusa bioluminiscente">
+          <img src="https://images.unsplash.com/photo-1576502200916-3808e07386a5?w=700&q=80" alt="Medusa" loading="lazy" />
+          <div class="gallery-overlay">
+            <span>Medusa bioluminiscente</span>
+          </div>
+        </div>
+        <div class="gallery-item reveal" style="--delay: 0.25s" data-caption="Delfines en alta mar">
+          <img src="https://images.unsplash.com/photo-1467066595890-d4a14024f1e7?w=700&q=80" alt="Delfines" loading="lazy" />
+          <div class="gallery-overlay">
+            <span>Delfines — Alta mar</span>
+          </div>
+        </div>
+        <div class="gallery-item reveal" style="--delay: 0.3s" data-caption="Fondo marino con anémonas">
+          <img src="https://images.unsplash.com/photo-1550159930-40066082a4fc?w=700&q=80" alt="Anémonas" loading="lazy" />
+          <div class="gallery-overlay">
+            <span>Anémonas — Fondo marino</span>
+          </div>
+        </div>
+        <div class="gallery-item reveal" style="--delay: 0.35s" data-caption="Paisaje submarino con buceador">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&q=80" alt="Paisaje submarino con buceador" loading="lazy" />
+          <div class="gallery-overlay">
+            <span>Buceador en paisaje submarino</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox-close" id="lightbox-close">✕</button>
+    <img id="lightbox-img" src="" alt="" />
+    <p id="lightbox-caption"></p>
+  </div>
+
+  <section id="contacto" class="section section-dark">
+    <div class="container container-narrow">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Únete al movimiento</p>
+        <h2 class="section-title">Conecta con Nosotros</h2>
+        <p class="section-desc">¿Tienes una historia del océano que compartir? ¿Quieres colaborar en iniciativas de conservación? Escríbenos.</p>
+      </div>
+      <form class="contact-form reveal" id="contact-form">
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="tu@correo.com" required />
+        </div>
+        <div class="form-group">
+          <label for="asunto">Asunto</label>
+          <select id="asunto" name="asunto">
+            <option value="">Selecciona un tema</option>
+            <option>Conservación marina</option>
+            <option>Colaboración científica</option>
+            <option>Voluntariado</option>
+            <option>Prensa y medios</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntanos tu historia o propuesta…" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary btn-full">Enviar mensaje</button>
+        <p class="form-note" id="form-note"></p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="logo-symbol">〜</span>
+          <span class="logo-text">Océano Profundo</span>
+          <p>Explorando y protegiendo los mares del planeta desde la conciencia y la ciencia.</p>
+        </div>
+        <div class="footer-links">
+          <h5>Secciones</h5>
+          <ul>
+            <li><a href="#oceanos">Océanos del mundo</a></li>
+            <li><a href="#vida-marina">Vida marina</a></li>
+            <li><a href="#animales">Animales destacados</a></li>
+            <li><a href="#conservacion">Conservación</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h5>Recursos</h5>
+          <ul>
+            <li><a href="#">NOAA — Oceanografía</a></li>
+            <li><a href="#">WWF Océanos</a></li>
+            <li><a href="#">Ocean Conservancy</a></li>
+            <li><a href="#">Smithsonian Ocean</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Océano Profundo. Hecho con respeto por el mar.</p>
+        <p class="footer-quote"><em>"El mar, una vez que te hechiza, te mantiene en su red de maravillas para siempre." — Jacques Cousteau</em></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="hola.js"></script>
+</body>
+</html>
