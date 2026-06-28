@@ -551,33 +551,23 @@
         <h2 class="section-title">Conecta con Nosotros</h2>
         <p class="section-desc">¿Tienes una historia del océano que compartir? ¿Quieres colaborar en iniciativas de conservación? Escríbenos.</p>
       </div>
-      <form class="contact-form reveal" id="contact-form">
-        <div class="form-group">
-          <label for="nombre">Nombre</label>
-          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required />
-        </div>
-        <div class="form-group">
-          <label for="email">Correo electrónico</label>
-          <input type="email" id="email" name="email" placeholder="tu@correo.com" required />
-        </div>
-        <div class="form-group">
-          <label for="asunto">Asunto</label>
-          <select id="asunto" name="asunto">
-            <option value="">Selecciona un tema</option>
-            <option>Conservación marina</option>
-            <option>Colaboración científica</option>
-            <option>Voluntariado</option>
-            <option>Prensa y medios</option>
-            <option>Otro</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="mensaje">Mensaje</label>
-          <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntanos tu historia o propuesta…" required></textarea>
-        </div>
-        <button type="submit" class="btn-primary btn-full">Enviar mensaje</button>
-        <p class="form-note" id="form-note"></p>
-      </form>
+      <div class="contact-form reveal" id="contact-form">
+        <iframe
+          id="JotFormIFrame-261785678180066"
+          title="Form"
+          onload="window.parent.scrollTo(0,0)"
+          allowtransparency="true"
+          allow="geolocation; microphone; camera; fullscreen; payment"
+          src="https://form.jotform.com/261785678180066"
+          frameborder="0"
+          style="min-width:100%;max-width:100%;height:539px;border:none;"
+          scrolling="no"
+        ></iframe>
+        <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+        <script>
+          window.jotformEmbedHandler("iframe[id='JotFormIFrame-261785678180066']", "https://form.jotform.com/")
+        </script>
+      </div>
     </div>
   </section>
 
