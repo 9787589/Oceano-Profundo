@@ -998,10 +998,11 @@ body {
   display: flex;
   align-items: flex-end;
   padding: 1.25rem;
-  opacity: 0;
+  opacity: 1;
   transition: opacity var(--transition);
 }
 
+/* Las etiquetas de la galería ya son visibles sin pasar el cursor */
 .gallery-item:hover .gallery-overlay { opacity: 1; }
 
 .gallery-overlay span {
